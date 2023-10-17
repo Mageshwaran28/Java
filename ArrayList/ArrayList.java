@@ -2,8 +2,8 @@ package ArrayList;
 
 import java.util.Arrays;
 
-public class ArrayList {
-   
+public class ArrayList  {
+
     private int size;
     private int capacity;
     int[] array;
@@ -20,6 +20,13 @@ public class ArrayList {
         array = new int[capacity];
         array[size] = data;
         size++;
+    }
+
+    ArrayList(int[] values) {
+        size = 0;
+        capacity = 10;
+        array = new int[capacity];
+        addAll(values);
     }
 
     void add(int value) {
@@ -41,6 +48,20 @@ public class ArrayList {
     }
 
     void addAtPosition(int position, int value) {
+
+        if (position > size) {
+            if (position <= capacity) {
+                size = position;
+                array[position - 1] = value;
+            } else {
+                capacity = position * 2;
+                array = Arrays.copyOf(array, capacity);
+                size = position;
+                array[position - 1] = value;
+            }
+            return;
+        }
+
         checkCapacity();
         for (int i = size; i >= position; i--) {
             array[i] = array[i - 1];
@@ -55,12 +76,11 @@ public class ArrayList {
         }
     }
 
-
-    void deleteAtFirst(){
+    void deleteAtFirst() {
         deleteAtPosition(1);
     }
 
-    void deleteAtLast(){
+    void deleteAtLast() {
         deleteAtPosition(size);
     }
 
@@ -87,11 +107,10 @@ public class ArrayList {
         array = Arrays.copyOf(new int[] { 0 }, capacity);
     }
 
-    
     int getValue(int index) {
 
         if (index > size || index < 0) {
-            System.out.print("Invalid index: " );
+            System.out.print("Invalid index: ");
             return index;
         }
 
@@ -103,25 +122,49 @@ public class ArrayList {
             System.out.println("Invalid position: " + position);
             return;
         }
-        array[position-1] = value;
+        array[position - 1] = value;
     }
 
-    boolean contains(int value){
-        for(int i =0;i<size;i++) {
-            if(array[i] == value){
+    boolean contains(int value) {
+        for (int i = 0; i < size; i++) {
+            if (array[i] == value) {
                 return true;
             }
         }
-        
+
         return false;
     }
 
-    boolean isEmpty(){
+    int containsNthValue(int nthValue, int value) {
+        int count = 0;
+        if (nthValue > 0) {
+            for (int i = 0; i < size; i++) {
+                if (array[i] == value) {
+                    count++;
+                }
+                if (count == nthValue) {
+                    return i;
+                }
+            }
+        } else if (nthValue < 0) {
+            for (int i = size - 1; i >= 0; i--) {
+                if (array[i] == value) {
+                    count++;
+                }
+                if (count + nthValue == 0) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
 
-        if(size == 0){
+    boolean isEmpty() {
+
+        if (size == 0) {
             return true;
         }
-        
+
         return false;
     }
 
@@ -136,7 +179,7 @@ public class ArrayList {
     }
 
     void display() {
-        if(size == 0) {
+        if (size == 0) {
             return;
         }
 
