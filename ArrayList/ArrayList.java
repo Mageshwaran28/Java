@@ -2,39 +2,38 @@ package ArrayList;
 
 import java.util.Arrays;
 
-public class ArrayList  {
+public class ArrayList<T> {
 
     private int size;
     private int capacity;
-    int[] array;
+    private T[] array = (T[]) new Object[capacity];;
 
     ArrayList() {
         size = 0;
         capacity = 10;
-        array = new int[capacity];
     }
 
-    ArrayList(int data) {
+    ArrayList(T data) {
         size = 0;
         capacity = 10;
-        array = new int[capacity];
+        array = (T[]) new Object[capacity];
         array[size] = data;
         size++;
     }
 
-    ArrayList(int[] values) {
+    ArrayList(T[] values) {
         size = 0;
         capacity = 10;
-        array = new int[capacity];
+        array = (T[]) new Object[capacity];
         addAll(values);
     }
 
-    void add(int value) {
+    void add(T value) {
         checkCapacity();
         array[size++] = value;
     }
 
-    void addAtFirst(int value) {
+    void addAtFirst(T value) {
         checkCapacity();
         for (int i = size; i >= 1; i--) {
             array[i] = array[i - 1];
@@ -43,13 +42,14 @@ public class ArrayList  {
         size++;
     }
 
-    void addAtLast(int value) {
+    void addAtLast(T value) {
         add(value);
     }
 
-    void addAtPosition(int position, int value) {
+    void addAtPosition(int position, T value) {
 
         if (position > size) {
+
             if (position <= capacity) {
                 size = position;
                 array[position - 1] = value;
@@ -59,19 +59,23 @@ public class ArrayList  {
                 size = position;
                 array[position - 1] = value;
             }
+
             return;
+
         }
 
         checkCapacity();
+
         for (int i = size; i >= position; i--) {
             array[i] = array[i - 1];
         }
+
         array[position - 1] = value;
         size++;
     }
 
-    void addAll(int... values) {
-        for (int i : values) {
+    void addAll(T[] values) {
+        for (T i : values) {
             add(i);
         }
     }
@@ -87,15 +91,13 @@ public class ArrayList  {
     void deleteAtPosition(int position) {
 
         if (position < 1 || position > size) {
-            System.out.println("Invalid position: " + position);
-            return;
+            throw new ArrayIndexOutOfBoundsException(position - 1);
         }
 
         for (int i = position - 1; i < size - 1; i++) {
             array[i] = array[i + 1];
         }
 
-        array[size - 1] = 0;
         size--;
 
         checkCapacity();
@@ -104,28 +106,26 @@ public class ArrayList  {
     void deleteAll() {
         size = 0;
         capacity = 10;
-        array = Arrays.copyOf(new int[] { 0 }, capacity);
+        array = Arrays.copyOf((T[]) new Object[] { 0 }, capacity);
     }
 
-    int getValue(int index) {
+    T getValue(int index) {
 
         if (index > size || index < 0) {
-            System.out.print("Invalid index: ");
-            return index;
+            throw new ArrayIndexOutOfBoundsException(index);
         }
 
         return array[index];
     }
 
-    void updateValue(int position, int value) {
+    void updateValue(int position, T value) {
         if (position < 1 || position > size) {
-            System.out.println("Invalid position: " + position);
-            return;
+            throw new ArrayIndexOutOfBoundsException(position - 1);
         }
         array[position - 1] = value;
     }
 
-    boolean contains(int value) {
+    boolean contains(T value) {
         for (int i = 0; i < size; i++) {
             if (array[i] == value) {
                 return true;
@@ -135,7 +135,7 @@ public class ArrayList  {
         return false;
     }
 
-    int containsNthValue(int nthValue, int value) {
+    int containsNthValue(int nthValue, T value) {
         int count = 0;
         if (nthValue > 0) {
             for (int i = 0; i < size; i++) {
@@ -168,7 +168,7 @@ public class ArrayList  {
         return false;
     }
 
-    void checkCapacity() {
+    private void checkCapacity() {
         if (capacity == size) {
             capacity *= 2;
             array = Arrays.copyOf(array, capacity);
