@@ -6,11 +6,12 @@ public class ArrayList<T> {
 
     private int size;
     private int capacity;
-    private T[] array = (T[]) new Object[capacity];;
+    private T[] array;
 
     ArrayList() {
         size = 0;
         capacity = 10;
+        array = (T[]) new Object[capacity];
     }
 
     ArrayList(T data) {
