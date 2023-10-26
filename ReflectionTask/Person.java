@@ -30,7 +30,7 @@ public class Person {
                                 || sourceFieldType.equals("float") || sourceFieldType.equals("double"))
                                 && destinationFieldType.equals("String")) {
 
-                            String sourcevalue = NumberToString(field2, sourceObject);
+                            String sourcevalue = numberToString(field2, sourceObject);
                             field.set(destinationObject, sourcevalue);
 
                         } else if (sourceFieldType.equals("String") && destinationFieldType.equals("int")) {
@@ -45,7 +45,7 @@ public class Person {
 
                         } else if (sourceFieldType.equals("String") && destinationFieldType.equals("boolean")) {
 
-                            boolean sourcevalue = StringToBoolean(field2, sourceObject);
+                            boolean sourcevalue = stringToBoolean(field2, sourceObject);
                             field.set(destinationObject, sourcevalue);
 
                         }
@@ -59,7 +59,7 @@ public class Person {
     }
     
 
-    static String NumberToString(Field field, Object srcObj) throws IllegalAccessException {
+    static String numberToString(Field field, Object srcObj) throws IllegalAccessException {
         String str = null;
         str = String.valueOf(field.get(srcObj));
 
@@ -80,7 +80,7 @@ public class Person {
         return str;
     }
 
-    static boolean StringToBoolean(Field field, Object srcObj) throws IllegalAccessException {
+    static boolean stringToBoolean(Field field, Object srcObj) throws IllegalAccessException {
         boolean bool = false;
         bool = Boolean.parseBoolean((String) field.get(srcObj));
 
