@@ -5,8 +5,9 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.lang.reflect.Parameter;
 
-class Parent {
+class Parent extends Exception {
 
     Parent() {
         System.out.println("This is empty parameter");
@@ -20,8 +21,8 @@ class Parent {
 
     private String str;
 
-    public void fun(String str, int index) {
-        System.out.println("Hello world"+this.str);
+     static void fun(String str, int index) {
+        System.out.println("Hello world");
     }
 
 }
@@ -32,7 +33,14 @@ class Reflection {
 
         Parent parent = new Parent();
         Class<?> c1 = parent.getClass();
+
+        System.out.println(c1.getName());
+        System.out.println(c1.getSimpleName());
+        System.out.println(c1.getSuperclass().getSimpleName());
+
         // Class<?> c1 = Parent.class;
+        
+        // Class<?> c1 = Class.forName("Parent");
 
         String s = c1.getSimpleName();
         System.out.println(s);
@@ -42,22 +50,26 @@ class Reflection {
 
         for (Method method2 : method) {
 
+            System.out.println(method2.getModifiers());
+
             System.out.println(method2.getName());
             System.out.println(Modifier.toString(method2.getModifiers()));
             System.out.println(method2.getReturnType());
 
-            Class<?>[] parameters = method2.getParameterTypes();
+            Parameter[] parameters = method2.getParameters();
 
             System.out.println(parameters.length);
 
-            for (Class<?> parameter : parameters) {
-                System.out.println(parameter.getSimpleName());
+            for (Parameter parameter : parameters) {
+                System.out.println(parameter.getName());
             }
+
+
 
         }
 
         Field name = c1.getField("name");
-        name.set(parent, "magesh");
+        name.set(parent, "s");
         System.out.println(name.get(parent));
 
         Field f1 = c1.getDeclaredField("str");
@@ -74,14 +86,14 @@ class Reflection {
 
         for (Constructor<?> c : constructors) {
 
-            System.out.println(c.getName());
-            System.out.println(c.getParameterCount());
+            // System.out.println(c.getName());
+            // System.out.println(c.getParameterCount());
 
             Class<?>[] pr = c.getParameterTypes();
 
             for (Class<?> param : pr) {
 
-                System.out.println(param.getSimpleName());
+                System.out.println(param.getTypeName());
 
             }
 
