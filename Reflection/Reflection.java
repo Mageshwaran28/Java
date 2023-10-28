@@ -44,7 +44,7 @@ class Reflection {
 
         String s = c1.getSimpleName();
         System.out.println(s);
-        System.out.println(c1.getPackageName());
+        System.out.println(c1.getPackage().getName());
 
         Method[] method = c1.getDeclaredMethods();
 
