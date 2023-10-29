@@ -1,0 +1,33 @@
+- Vector is same as the ArrayList 
+- Vector and ArrayList provides the same functionality
+- Difference between Vector and ArrayList is thread-safe
+- Vector is Synchronized (Thread-safe) and ArrayList is Asynchronized
+- In Vector can lock all the operations
+- When one thread tries to access the Vector and  at the same time another thread tries to access , throw  an exception "ConcurrentModificationException".
+- It is recommmented to use ArrayList in place of Vector because Vector less efficient . Reason is this continuous use of lock for each operation makes vectors less efficient.
+- In array lists, methods are not synchronized.Instead, it uses the "Collections.synchronizedList() " method that synchronizes the list as a whole.
+
+* Create a vector 
+    Vector<String> vector = new Vector<String>();
+
+* Add Elements to Vector
+    add(element) - adds an element to vectors
+    add(index, element) - adds an element to the specified position
+    addAll(vector) - adds all elements of a vector to another vector
+
+* Remove Elements from Vector
+    remove(index) - removes an element from specified position
+    removeAll() - removes all the elements
+    clear() - removes all elements. It is more efficient than removeAll()
+
+* Access Vector Elements
+    get(index) - returns an element specified by the index
+    iterator() - returns an iterator object to sequentially access vector elements  
+
+* Others Vector Methods
+    set() - changes an element of the vector
+    size() - returns the size of the vector
+    toArray() - converts the vector into an array
+    toString() - converts the vector into a String
+    contains() - searches the vector for specified element and returns a boolean result
+
