@@ -61,5 +61,9 @@ public class HashMapCollection {
             System.out.println(value);
         }
 
+        map.put(null, 28);
+        System.out.println(map);
+
+
     }
 }
