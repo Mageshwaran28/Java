@@ -3,7 +3,6 @@ package Collection;
 import java.util.ArrayDeque;
 import java.util.Iterator;
 
-
 public class ArrayDequeCollection {
     public static void main(String[] args) {
 
@@ -65,36 +64,35 @@ public class ArrayDequeCollection {
         // System.out.println(queueDeque.poll()); return null
 
         System.out.println(queue);
-        System.out.println( "remove head"+queue.pop()); // throw NoSuchElementException when queue is empty
+        System.out.println("remove head" + queue.pop()); // throw NoSuchElementException when queue is empty
         System.out.println(queue);
         queue.push(2); // add at head . throw an exception if queue is full
         System.out.println(queue);
 
         System.out.println("Iterate in FIFO");
         Iterator<Integer> itr = queue.iterator();
-        while(itr.hasNext()){
+        while (itr.hasNext()) {
             System.out.println(itr.next());
         }
 
         System.out.println("Iterate in LIFO");
         Iterator<Integer> itr2 = queue.descendingIterator();
-        while(itr2.hasNext()){
+        while (itr2.hasNext()) {
             System.out.println(itr2.next());
         }
 
         System.out.println(queue.element()); // return the head element
 
-        System.out.println("Size : "+queue.size());
-        System.out.println("Contains : "+queue.contains(3));
+        System.out.println("Size : " + queue.size());
+        System.out.println("Contains : " + queue.contains(3));
         System.out.println(queue.toString());
-        Object[] newArray =  queue.toArray(); // return object array
+        Object[] newArray = queue.toArray(); // return object array
         System.out.println("Convert to array : ");
         for (Object object : newArray) {
             System.out.println(object);
         }
 
-
         ArrayDeque<Integer> cloneQueue = (ArrayDeque<Integer>) queue.clone();
-        System.out.println( "Clone : "+cloneQueue);
+        System.out.println("Clone : " + cloneQueue);
     }
 }
