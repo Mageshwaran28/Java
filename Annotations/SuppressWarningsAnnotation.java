@@ -1,21 +1,16 @@
 package Annotations;
 
-class DeprecatedDemo{
-
-    @Deprecated
-    public void Display(){
-        System.out.println("Deprecateddemo display()");
-    }
-
-}
+import java.util.ArrayList;
 
 public class SuppressWarningsAnnotation {
 
     @SuppressWarnings({ "checked" })
-    public static void main(String args[]){
+    public static void main(String args[]) {
 
-        DeprecatedDemo d1 = new DeprecatedDemo();
-        d1.Display();
+        @SuppressWarnings("unused")
+        int unusedVariable;
 
+        @SuppressWarnings({"rawtypes", "unused"})
+        ArrayList list = new ArrayList();
     }
 }

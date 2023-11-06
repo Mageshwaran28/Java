@@ -18,7 +18,6 @@ import java.lang.annotation.Documented;
 }
 
 @ClassPreamble(author = "Mageshwaran", date = "10/31/2023", reviewers = { "Balaji", "Kavi", "Ravi" })
-
 public class DeclareAnnotationBody {
 
     public static void main(String[] args) {
