@@ -1,6 +1,5 @@
 package Reflection;
 
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -18,15 +17,15 @@ class Parent extends Exception {
     }
 
     public String name;
-
+    
+    @SuppressWarnings("unused")
     private String str;
 
-     static void fun(String str, int index) {
+    static void fun(String str, int index) {
         System.out.println("Hello world");
     }
 
 }
-
 
 class Reflection {
     public static void main(String[] args) throws Exception {
@@ -39,7 +38,7 @@ class Reflection {
         System.out.println(c1.getSuperclass().getSimpleName());
 
         // Class<?> c1 = Parent.class;
-        
+
         // Class<?> c1 = Class.forName("Parent");
 
         String s = c1.getSimpleName();
@@ -63,8 +62,6 @@ class Reflection {
             for (Parameter parameter : parameters) {
                 System.out.println(parameter.getName());
             }
-
-
 
         }
 
