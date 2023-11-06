@@ -15,9 +15,9 @@ public class DiffBetweenPriorityQueueAndLinkedListQueue {
 
         System.out.println("Random number generated:");
         for (int i = 0; i < len; i++) {
-            Integer randomNumber = new Integer(random.nextInt(100));
-            linkedList.add(new Integer(randomNumber));
-            priorityQueue.add(new Integer(randomNumber));
+            Integer randomNumber = Integer.valueOf(random.nextInt(100));
+            linkedList.add(randomNumber);
+            priorityQueue.add(randomNumber);
             System.out.println(i + ": " + randomNumber);
         }
         
