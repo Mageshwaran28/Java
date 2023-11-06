@@ -2,8 +2,6 @@ package Collection;
 
 import java.util.HashSet;
 
-import javax.sound.midi.Soundbank;
-
 public class HashSetCollection {
     public static void main(String[] args) {
         HashSet<Integer> set = new HashSet<Integer>(8, 0.6f); // 0.6f is when 60% of the set is full then double the

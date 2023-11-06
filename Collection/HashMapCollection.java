@@ -25,6 +25,7 @@ public class HashMapCollection {
         System.out.println("Is Empty : " + map.isEmpty());
         System.out.println("Size of map is: " + map.size());
 
+        @SuppressWarnings("unchecked")
         HashMap<String, Integer> cloneMap = (HashMap<String, Integer>) map.clone();
         System.out.println("cloneMap : " + cloneMap);
 

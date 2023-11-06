@@ -25,9 +25,8 @@ public class LinkedListCollection extends LinkedList<Integer> {
 
         System.out.println(list);
 
-        LinkedList<Integer> listClone = new LinkedList<>();
-
-        listClone = (LinkedList) list.clone();
+        @SuppressWarnings({"rawtypes", "unchecked"})
+        LinkedList<Integer> listClone = (LinkedList) list.clone();
 
         list.clear();
         System.out.println(list);
@@ -66,6 +65,8 @@ public class LinkedListCollection extends LinkedList<Integer> {
         // list.clear();
         System.out.println(list.isEmpty());
         System.out.println(list.size());
+
+        @SuppressWarnings("unused")
         Object[] ob =     list.toArray();
         
         System.out.println(list);

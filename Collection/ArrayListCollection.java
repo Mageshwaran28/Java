@@ -41,6 +41,8 @@ public class ArrayListCollection extends ArrayList<Integer>{
         System.out.println("List 2 elements all are removed :" + list);
 
         Object clone = list.clone(); // return Object type of the list
+
+        @SuppressWarnings("unchecked")
         ArrayList<Integer> cloneList = (ArrayList<Integer>) list.clone();
 
         System.out.println("Clone in Object :" + clone);
