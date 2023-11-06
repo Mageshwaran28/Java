@@ -1,8 +1,12 @@
 package Annotations;
 
-import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-@Documented
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
 @interface ClassPreamble {
     String author();
 
@@ -17,8 +21,18 @@ import java.lang.annotation.Documented;
     String[] reviewers();
 }
 
-@ClassPreamble(author = "Mageshwaran", date = "10/31/2023", reviewers = { "Balaji", "Kavi", "Ravi" })
+@Retention(RetentionPolicy.RUNTIME)
+@interface Test{
+    String name();
+}
+
 public class DeclareAnnotationBody {
+
+    @SuppressWarnings("check")
+    @Test(name =  "magesh")
+    @ClassPreamble(author = "Mageshwaran", date = "10/31/2023", reviewers = { "Balaji", "Kavi", "Ravi" })
+    public void method() {
+    }
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
