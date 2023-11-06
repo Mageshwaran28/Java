@@ -1,6 +1,9 @@
 package ConstructorAndDestructor;
 
 public class Destructor {
+    
+    @SuppressWarnings("unused")
+
     public static void main(String[] args) {
         SampleClass sampleClass = new SampleClass();
         SampleClass sampleClass2 = new SampleClass();
@@ -16,5 +19,5 @@ public class Destructor {
     protected void finalize() {
         System.out.println("Object will be destroyed");
     }
-    
+
 }

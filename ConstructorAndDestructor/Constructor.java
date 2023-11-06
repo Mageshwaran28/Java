@@ -1,22 +1,22 @@
 package ConstructorAndDestructor;
 
-class ParentClass{
+class ParentClass {
 
-    ParentClass(){
+    ParentClass() {
         System.out.println("Default parent constructor ");
     }
 
-    ParentClass(int value){
+    ParentClass(int value) {
         System.out.println(value);
     }
 
-    ParentClass(int value , int parent){
+    ParentClass(int value, int parent) {
         System.out.println(value);
     }
 
 }
 
-class SampleClass extends ParentClass{
+class SampleClass extends ParentClass {
 
     int value;
 
@@ -47,7 +47,10 @@ class SampleClass extends ParentClass{
 
 public class Constructor {
 
+    
     public static void main(String[] args) {
+        
+        @SuppressWarnings("unused")
         SampleClass sampleClass = new SampleClass();
         // sampleClass.getValue();
         SampleClass sampleClass2 = new SampleClass(30);
