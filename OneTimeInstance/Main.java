@@ -1,6 +1,8 @@
 package OneTimeInstance;
 
 public class Main {
+    @SuppressWarnings("unused")
+
     public static void main(String[] args) {
         B b = new B(); // first B object created
         B b1 = new B(); // second B object created

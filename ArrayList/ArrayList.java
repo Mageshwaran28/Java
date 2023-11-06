@@ -2,6 +2,7 @@ package ArrayList;
 
 import java.util.Arrays;
 
+@SuppressWarnings("unchecked")
 public class ArrayList<T> {
 
     private int size;
