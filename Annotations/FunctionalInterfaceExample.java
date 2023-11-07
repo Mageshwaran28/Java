@@ -1,27 +1,14 @@
 package Annotations;
 
-public class FunctionalInterfaceExample  implements FunctionalInterfaceAnnotation {
-
-    public String getFullName(String firstName , String lastName){
-        return firstName  + lastName;
-    }
-
+public class FunctionalInterfaceExample {
     public static void main(String[] args) {
-        FunctionalInterfaceExample example = new FunctionalInterfaceExample();
-        String name = example.getFullName("Mageh" , "waran");
 
-        example.greeting(name);
+        FunctionalInterfaceAnnotation example;
+        example = (firstName, secondName) -> {
+            return firstName+secondName;
+        };
+
+        System.out.println(example.getFullName("Magesh", "waran"));
+        example.greeting("Mageshwaran");
     }
-}
-
-
-class ChildClass extends FunctionalInterfaceExample {
-
-    // public String getFullName(String firstName , String lastName){
-    //     return firstName  + lastName;
-    // }
-    public static void main(String[] args) {
-        new ChildClass().greeting("Mageshwaran");
-    }
-    
 }
